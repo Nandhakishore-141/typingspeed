@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
+import './TypingSpeedTester.css';
 
 export default function TypingSpeedTester() {
   const textToType = "Practice makes a man perfect!";
-
   const [time, setTime] = useState(0);
   const [textInput, setTextInput] = useState("");
   const timerRef = useRef(null);
@@ -44,7 +44,7 @@ export default function TypingSpeedTester() {
   }, [textInput, time]);
 
   return (
-    <div style={{ maxWidth: '600px', margin: 'auto', textAlign: 'center' }}>
+    <div className="typing-tester">
       <h1>Typing Speed Checker ⌨️</h1>
       <p><b>Text to type:</b> <mark>{textToType}</mark></p>
       <textarea
@@ -53,17 +53,11 @@ export default function TypingSpeedTester() {
         onChange={e => { setTextInput(e.target.value); startTimer(); }}
         cols="50"
         rows="5"
-        style={{ fontSize: '16px', padding: '10px' }}
       />
       <h3>Time elapsed: {(time / 1000).toFixed(2)}s</h3>
       <h3>Accuracy: {accuracy}%</h3>
       <h3>WPM: {wpm}</h3>
-      <button
-        onClick={reset}
-        style={{ padding: '10px 20px', marginTop: '10px' }}
-      >
-        Reset
-      </button>
+      <button onClick={reset}>Reset</button>
     </div>
   );
 }

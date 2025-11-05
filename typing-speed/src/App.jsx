@@ -1,9 +1,9 @@
 import React from 'react';
-import TypingSpeedTester from './TypingSpeedTester.jsx';
+import TypingSpeedTester from './TypingSpeedTester';
 
 export default function App() {
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+    <div>
       <TypingSpeedTester />
     </div>
   );
